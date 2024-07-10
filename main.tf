@@ -7,6 +7,7 @@ terraform {
     }
   }
 }
+
 terraform {
   cloud {
     organization = "Testpractice12"
@@ -23,9 +24,9 @@ provider "azurerm" {
 }
 
 resource "random_string" "uniquestring" {
-  length           = 20
-  special          = false
-  upper            = false
+  length  = 20
+  special = false
+  upper   = false
 }
 
 resource "azurerm_resource_group" "rg" {
@@ -38,5 +39,5 @@ resource "azurerm_storage_account" "storageaccount" {
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
-  account_replication_type = "LRS"
+  account_replication_type = "ZRS"
 }
